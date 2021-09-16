@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Pet</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+        integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./public/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Modal gioi thieu -->
+    <div class="modal fade modal__hello__player" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn tên gì nào ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="error__name">Ôi có vẻ như bạn chưa nhập tên rồi !!! </p>
+                    <input type="text" class="name__player" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn__deteced startAfterSaveName">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hello__name__player">
+        <div class="img__instructor">
+            <img src="./public/img/instructor-game.png" alt="">
+        </div>
+        <div class="title__instructor">
+            <p>Chào bạn có thể cho mình biết tên đc không! <button class="finish__massage" data-toggle="modal"
+                    data-target="#exampleModal">Tiếp tục >></button></p>
+        </div>
+
+        <div class="title__instructor instructor__name">
+            <p>Xin Chào "<b class="name__title"></b>"! <br> Chào mừng bạn về nhà, những chú thú cưng đang cần được bạn
+                chăm
+                sóc đấy. <button class="finish__massage end__finish">Tiếp tục >></button></p>
+        </div>
+    </div>
+
+    <!-- ---------------------------------- Modal Shop --------------------------------------------- -->
+
+    <div class="modal fade modal__shop" id="exampleModal__shop" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pet Shop</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="massage">
+                        <p class="success" style="display: none; color: greenyellow;">Mua hàng thành công!</p>
+                        <p class="not__success" style="display: none; color: crimson;">Bạn không đủ tiền!</p>
+                    </div>
+                    <div class="shop__food">
+                        <h5>Đồ ăn cho thú cưng</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="shop__food__1" src="./public/img/food/cat-food-1.jpg" alt="">
+                                <p>Giá: 100</p>
+                                <input id="value__food__1" type="hidden" value="100">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__food__2" src="./public/img/food/cat-food-2.jpg" alt="">
+                                <p>Giá: 250</p>
+                                <input id="value__food__2" type="hidden" value="250">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__food__3" src="./public/img/food/cat-food-3.jpg" alt="">
+                                <p>Giá: 400</p>
+                                <input id="value__food__3" type="hidden" value="400">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__food__4" src="./public/img/food/cat-food-4.jpg" alt=""
+                                    style="padding-top: 15px;">
+                                <p>Giá: 500</p>
+                                <input id="value__food__4" type="hidden" value="500">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop__toys">
+                        <h5>Đồ chơi cho thú cưng</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img class="shop__toys__1" src="./public/img/toys/toys-1.jpg" alt="">
+                                <p>Giá: 300</p>
+                                <input id="value__toys__1" type="hidden" value="300">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__toys__2" src="./public/img/toys/toys-2.jpg" alt="">
+                                <p>Giá: 600</p>
+                                <input id="value__toys__2" type="hidden" value="600">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__toys__3" src="./public/img/toys/toys-3.jpg" alt="">
+                                <p>Giá: 800</p>
+                                <input id="value__toys__3" type="hidden" value="800">
+                            </div>
+                            <div class="col-md-3">
+                                <img class="shop__toys__4" src="./public/img/toys/toys-4.jpg" alt="">
+                                <p>Giá: 1000</p>
+                                <input id="value__toys__4" type="hidden" value="1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------------End Modal -------------------------------------------- -->
+
+
+    <div class="container">
+        <div class="wrapper-game">
+            <header>
+                <div class="header__info">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="player-name">
+                                <p>Tên chủ nhà: <b class="name__player__header">Trường</b></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="money-xu">
+                                <p>Xu : <b class="coins__price">1000</b></p>
+                                <input id="coin" type="hidden" value="1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <button class="shop__pet" data-toggle="modal" data-target="#exampleModal__shop" style="border: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <div class="massage__game massage__food">
+                    <div id="talkbubble">
+                        <p>Ôi có vẻ như món đồ này đã hết mất rồi! <br> Hãy vào cửa hàng để mua thêm nhá!</p>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="main__game">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="select-food">
+                                <div class="box">
+                                    <img id="box__food__1" src="./public/img/food/cat-food-1.jpg" alt="">
+                                    <input type="hidden" value="">
+                                    <p class="quatity__number" id="food__1">2</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__food__2" src="./public/img/food/cat-food-2.jpg" alt="">
+                                    <input type="hidden" value="">
+                                    <p class="quatity__number" id="food__2">0</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__food__3" src="./public/img/food/cat-food-3.jpg" alt="">
+                                    <input type="hidden" value="">
+                                    <p class="quatity__number" id="food__3">2</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__food__4" src="./public/img/food/cat-food-4.jpg" alt="">
+                                    <input type="hidden" value="">
+                                    <p class="quatity__number" id="food__4">2</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 animal__img__main">
+                            <div class="health__status">
+                                <div class="border__bar">
+                                    <div id="blool__bar">
+                                        <div class="half-blool"></div>
+                                    </div>
+                                </div>
+                                <div class="count-down"></div>
+                                <div class="border__bar__extra">
+                                    <div id="food__bar">
+                                        <div class="half-food"></div>
+                                    </div>
+                                </div>
+                                <div class="border__bar__extra">
+                                    <div id="status__bar"></div>
+                                </div>
+                            </div>
+                            <div class="image-animation-animal">
+                                <img id="img__main" src="./public/img/animal/cat-img-cartoon.png" alt="" srcset="">
+                                <h3 class="notification-pet" style="left: 91%;position: absolute;margin-top: -55px;">
+                                </h3>
+                                <div class="massage__pet__hungry">
+                                    <div class="box">
+                                        <p> Hungry! Hungry!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="select-toy">
+                                <div class="box">
+                                    <img id="box__toys__1" src="./public/img/toys/toys-1.jpg" alt="">
+                                    <p class="quatity__number" id="toys__1">2</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__toys__2" src="./public/img/toys/toys-2.jpg" alt="">
+                                    <input type="hidden" value="">
+                                    <p class="quatity__number" id="toys__2">2</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__toys__3" src="./public/img/toys/toys-3.jpg" alt="">
+                                    <p class="quatity__number" id="toys__3">2</p>
+                                </div>
+                                <div class="box">
+                                    <img id="box__toys__4" src="./public/img/toys/toys-4.jpg" alt="">
+                                    <p class="quatity__number" id="toys__4">2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div class="bonuss_gif">
+        <div class="box__gif">
+            <i class="fas fa-gift"></i>
+            <div id="time">02:00</div>
+        </div>
+        <div class="massage__gif">
+            <div class="box">
+                <p>Phần thưởng của bạn đã được gửi !</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Thông báo game kết thúc và cho người dùng chọn lựa -->
+    <!-- <div class="end__game__massage">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="display: none;">
+            <div class="toast-header">
+                <h5>Thú cưng chết mất rồi</h5>
+                <i class="far fa-sad-tear"></i>    
+            </div>
+            <div class="toast-body">
+                <button type="button" id="play_again" class="btn btn-primary btn-sm">Chơi lại</button>
+                <button type="button" id="close_gameover" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Quay về trang chủ</button>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Thông báo game kết thúc và cho người dùng chọn lựa -->
+    <div class="end__game__massage" >
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false"
+            style="display: none;">
+            <div class="toast-header">
+                <h5>Thú cưng chết mất rồi</h5>
+                <i class="far fa-sad-tear"></i>
+            </div>
+            <div class="toast-body">
+                <button type="button" id="play_again" class="btn btn-primary btn-sm">
+                    <i class="fas fa-undo"></i> Chơi lại</button>
+                <button type="button" id="close_gameover" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">
+                    <i class="fas fa-home"></i> Quay về trang chủ</button>
+            </div>
+        </div>
+    </div>
+    <!-- kết thúc thông báo -->
+    <div class="feeding-sound"></div>
+    <div class="caressing-sound"></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+<script src="./public/js/main.js"></script>
+
+</html>

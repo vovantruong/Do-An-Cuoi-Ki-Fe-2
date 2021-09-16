@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+body{
+    background: url('../img/house-pet-2.jpg') no-repeat;
+    background-size: cover;
+    background-position-y: -140px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+p{
+    margin-bottom: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.hello__name__player{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    background: rgba(0, 0, 0, 0.849);
+}
+
+.hello__name__player .img__instructor{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 200px;
+}
+.img__instructor img{
+    width: 100%;
+}
+
+.hello__name__player .title__instructor{
+    position: absolute;
+    right: 14%;
+    bottom: 18%;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 0 10px #fff;
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 30px 20px;
+}
+
+.hello__name__player .title__instructor p{
+    margin-bottom: 0;
+}
+
+.hello__name__player .title__instructor button{
+    color: crimson;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 10px;
+    padding: 0 10px;
+    border-bottom: 2px solid crimson !important;
+    background: none;
+    border: none;
+}
+
+.instructor__name{
+    display: none;
+}
+
+.error__name{
+    color: crimson;
+    font-weight: 500;
+    text-align: center;
+    font-size: 22px;
+    display: none;
+}
+
+
+.modal__hello__player .modal-content{
+    transform: translateY(200px);
+    box-shadow: 0 0 10px #fff;
+    background: #b1dba9;
+}
+
+.modal__hello__player .modal-content .modal-header{
+    border-bottom: none; 
+}
+
+.modal__hello__player .modal-content h5{
+    letter-spacing: 2px;
+    color: sienna;
+    text-shadow: 0 0 6px #fff;
+    text-transform: uppercase;
+}
+
+.modal__hello__player .modal-content input.name__player{
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 10px;
+    box-shadow: 0 0 10px rgb(83, 83, 83);
+    outline: none;
+}
+
+
+
+.modal__hello__player .modal-content .modal-footer{
+    justify-content: space-around;
+    border-top: none;
+}
+
+.modal__hello__player .modal-content button.get__name__player{
+    background:linear-gradient(120deg, #af3f19, #f59677,#af3f19);
+    color: #fff;
+    border: 2px solid sienna;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.modal__hello__player .modal-content button.get__name__player:hover{
+    border: 2px solid sienna;
+    box-shadow: 0px 0px 10px rgba(255, 0, 0, 0.699);
+}
+
+.modal__shop img{
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #742d11;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.modal__shop .modal-body{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.modal__shop h5{
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #742d11;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.modal__shop p {
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.modal__shop .shop__toys{
+    margin-top: 20px;
+}
+
+.modal__shop .col-md-3:hover{
+    transition: .3s;
+    transform: scale(1.1);
+}
+
+/*css inside wrapper game*/
+.wrapper-game{
+    width: 100%;
+    position: relative;
+}
+/*end inside wrapper game*/
+
+header .shop__pet i {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    color: #fff;
+    background: #ec7e0f;
+    padding: 18px;
+    border-radius: 30%;
+    font-size: 23px;
+    border: 4px solid #742d11;
+    cursor: pointer;
+    box-shadow: 0px 0px 12px 5px #fff, inset 0 0 6px #fff;
+    animation: cart 1s infinite linear;
+}
+
+@keyframes cart {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.header__info{
+    position: relative;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background:linear-gradient(216deg, #af3f19, #e9b7a6,#af3f19);
+    margin-top: 50px;
+    border-radius: 30px;
+    border: 4px solid #742d11;
+    box-shadow: 0 0 14px #fff;
+    padding: 7px 20px;
+    width: 60%;
+    margin-left: auto;
+}
+
+.header__info .player-name{
+    text-align: left;
+}
+
+
+.header__info .name__player__header{
+    font-size: 20px;
+    padding-left: 15px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+
+.header__info .coins__price{
+    font-size: 20px;
+    padding-left: 15px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+.header__info::before{
+    content: '';
+    position: absolute;
+    top: -29px;
+    right: -21px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background:linear-gradient(216deg, #af3f19, #e9b7a6,#af3f19);
+    border: 4px solid #742d11;
+    box-shadow: 0 0 10px #fff;
+}
+
+
+.main__game{
+    margin-top: 100px;
+}
+
+.main__game .image-animation-animal img{
+    position: absolute;
+    left: 60px;
+    top: 30px;
+    width: 80%;
+}
+
+.main__game .select-food{
+    display: block;
+    background:linear-gradient(216deg, #af3f19, #e9b7a6,#af3f19);
+    border: 5px solid #742d11;
+    box-shadow: 0px 0px 12px 5px #fff, inset 0 0 6px #fff;
+    border-radius: 20px;
+    text-align: center;
+    width: 45%;
+    margin-right: auto;
+    position: relative;
+    padding: 10px 0;
+}
+
+.main__game .select-toy{
+    display: block;
+    background:linear-gradient(216deg, #af3f19, #e9b7a6,#af3f19);
+    border: 5px solid #742d11;
+    box-shadow: 0px 0px 12px 5px #fff, inset 0 0 6px #fff;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    padding: 10px 0;
+    width: 45%;
+    margin-left: auto;
+}
+
+.main__game .box{
+    position: relative;
+    padding: 10px;
+    transition: all .3s ease-in-out;
+}
+
+.main__game .box:hover{
+    transform: scale(1.1);
+}
+
+.main__game .box img{
+    border: 4px solid #af3f19;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 90%;
+    border-radius: 50%;
+    cursor: url('../img/cursor/cheese.png'), auto;
+}
+#img__main{
+    cursor: url('../img/cursor/hovermao.png'), auto;
+}
+
+.main__game .quatity__number{
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    background: #f08417;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+}
+
+
+/* Virtual Pet */
+
+.animal__img__main{
+    position: relative;
+    top: 0;
+    left: 0;
+
+}
+
+.animal__img__main .health__status{
+    position: absolute;
+    top: -68px;
+    left: 60px;
+    z-index: 10;
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.animal__img__main .health__status .border__bar{
+    border: 3px solid #af3f19;
+    border-radius: 20px;
+    margin: 5px 0;
+    box-shadow: 0 0 6px 4px #fff;
+    height: 32px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.animal__img__main .health__status .border__bar__extra{
+    border: 3px solid #af3f19;
+    border-radius: 20px;
+    height: 19px;
+    margin-top:3px;
+    overflow: hidden;
+    background: #fff;
+    width: 70%;
+}
+
+.animal__img__main .health__status #blool__bar{
+    background: linear-gradient(90deg, #e0270f, #fff01c,#7ef80b);
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+}
+.animal__img__main .health__status #food__bar{
+    background: orangered;
+    border-radius: 12px;  
+    width: 100%;
+    height: 100%;
+}
+.animal__img__main .health__status #status__bar{
+    background: rgb(0, 217, 255);
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;   
+}
+
+/* Thông báo */
+
+.massage__game{
+    position: absolute;
+    top: 5px;
+    left: 137px;
+    transform: scale(0);
+    transition: all .3s ;
+}
+
+#talkbubble {
+    width: 220px;
+    height: 105px;
+    background: #fff;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+   box-shadow: 0 0 10px #333;
+}
+#talkbubble:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #fff;
+    border-bottom: 13px solid transparent;
+}
+#talkbubble p{
+    position: absolute;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.box__gif{
+    position: fixed;
+    bottom: 55px;
+    left: 55px;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background:#af3f19;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 0 10px #fff, inset 0 0 4px #fff;
+}
+
+.box__gif i {
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    animation: scale 1s infinite linear;
+}
+
+@keyframes scale {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+
+.box__gif #time{
+    position: absolute;
+    bottom: -30px;
+    letter-spacing: 2px;
+    left: -10px;
+    font-size: 17px;
+    font-weight: 600;
+    background: #f13e027c;
+    padding: 0px 19px;
+    border-radius: 10px;
+}
+
+.massage__gif{
+    display: none;
+}
+
+.massage__gif .box{
+    width: 220px;
+    background: #fff;
+    position: fixed;
+    left: 150px;
+    bottom: 55px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+    transition: all .3s ;
+}
+
+.massage__gif .box::before{
+    content: "";
+    position: absolute;
+    right: 100%;
+    bottom: 20px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #fff;
+    border-bottom: 13px solid transparent;
+}
+
+.massage__gif .box p{
+    padding: 10px;
+}
+.count-down{
+    position: absolute;
+    margin-top: -70px;
+    right: 10%;
+
+}
+#message_game{
+    display: flex;
+    position: absolute;
+    width: 400px;
+    height: 130px;
+    text-align: center;
+    top: 10%;
+    left: 38%;
+
+}
+.massage__pet__hungry{
+    position: absolute;
+    top: 125px;
+    right: 40px;
+    display: none;
+    animation: tranlate 1s infinite linear;
+}
+
+@keyframes tranlate {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+
+.massage__pet__hungry .box{
+    position: relative;
+    width: 220px;
+    background: #fff;
+    text-align: center;
+    left: 150px;
+    bottom: 55px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #333;
+    transition: all .3s ;
+}
+
+.massage__pet__hungry .box::before{
+    content: "";
+    position: absolute;
+    right: 98%;
+    bottom: 10px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #fff;
+    border-bottom: 13px solid transparent;
+}
+
+.end__game__massage{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);   
+}
+
+.toast-header{
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.toast-header i {
+    margin-left: 15px;
+}
+
+.toast-body{
+    padding: 35px;
+}
+
+.toast-body button{
+    padding: 10px;
+}
+
+.toast-body button:nth-child(1){
+    margin-right: 20px;
+}
