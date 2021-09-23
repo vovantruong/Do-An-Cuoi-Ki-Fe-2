@@ -30,10 +30,10 @@
                 </div>
                 <div class="modal-body">
                     <p class="error__name">Ôi có vẻ như bạn chưa nhập tên rồi !!! </p>
-                    <input type="text" class="name__player" value="">
+                    <input type="text" class="name__player" value="" placeholder="Nhập tên bạn tại đây.">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn__deteced startAfterSaveName">Lưu</button>
+                    <button type="button" class="btn btn-primary btn__deteced startAfterSaveName">Tiếp tục nào >></button>
                 </div>
             </div>
         </div>
@@ -141,7 +141,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="player-name">
-                                <p>Tên chủ nhà: <b class="name__player__header">Trường</b></p>
+                                <p>Tên chủ nhà: <b class="name__player__header"></b></p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -151,6 +151,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="img-spin">
+                        <img src="./public/img/animal/chong-chong .png" alt="">
+                    </div>
+                    
                 </div>
 
 
@@ -178,7 +182,7 @@
                                 <div class="box">
                                     <img id="box__food__2" src="./public/img/food/cat-food-2.jpg" alt="">
                                     <input type="hidden" value="">
-                                    <p class="quatity__number" id="food__2">0</p>
+                                    <p class="quatity__number" id="food__2">2</p>
                                 </div>
                                 <div class="box">
                                     <img id="box__food__3" src="./public/img/food/cat-food-3.jpg" alt="">
@@ -259,25 +263,14 @@
         </div>
     </div>
 
-
-    <!-- Thông báo game kết thúc và cho người dùng chọn lựa -->
-    <!-- <div class="end__game__massage">
-        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="display: none;">
-            <div class="toast-header">
-                <h5>Thú cưng chết mất rồi</h5>
-                <i class="far fa-sad-tear"></i>    
-            </div>
-            <div class="toast-body">
-                <button type="button" id="play_again" class="btn btn-primary btn-sm">Chơi lại</button>
-                <button type="button" id="close_gameover" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Quay về trang chủ</button>
-            </div>
-        </div>
-    </div> -->
-
     <!-- Thông báo game kết thúc và cho người dùng chọn lựa -->
     <div class="end__game__massage" >
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false"
             style="display: none;">
+            <div class="img-over">
+                <img src="./public/img/animal/game-over-1.png" alt="">
+                <img src="./public/img/animal/game-over-2.png" alt="">
+            </div>         
             <div class="toast-header">
                 <h5>Thú cưng chết mất rồi</h5>
                 <i class="far fa-sad-tear"></i>
@@ -289,10 +282,30 @@
                     <i class="fas fa-home"></i> Quay về trang chủ</button>
             </div>
         </div>
+       
     </div>
     <!-- kết thúc thông báo -->
     <div class="feeding-sound"></div>
     <div class="caressing-sound"></div>
+    <div class="start-sound"></div>
+    <div class="over-sound"></div>
+    <div class="end__temp"></div>
+    <!-- Setting -->
+    <audio class="main-sound" autoplay loop> 
+        <source src="./public/img/audio/main-sound.mp3" type="audio/mpeg">
+    </audio>
+    <div class="setting">
+        <button class="play-pause"><i class="fas fa-volume-down"></i></button>
+        <input class="temp" type="hidden" style="display: none;">
+    </div>
+    <div class="bg-setting">
+        <button class="cog"><i class="fas fa-images"></i></button>
+        <div class="change-img">
+            <img class="change-bg-3 change" src="./public/img/house-pet-1.jpg" alt="">  
+            <img class="change-bg-1 change" src="./public/img/house-pet-2.jpg" alt="">
+            <img class="change-bg-2 change" src="./public/img/house-pet-3.jpg" alt="">        
+        </div>
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

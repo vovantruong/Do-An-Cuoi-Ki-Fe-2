@@ -9,9 +9,11 @@
 
 document.querySelector('.wrapper-game').style.display="none";
 document.querySelector('.bonuss_gif').style.display="none";
-
+document.querySelector('.setting').style.display="none";
+document.querySelector('.bg-setting').style.display="none";
 // Kết thúc chào người chơi
 const end__finish = document.querySelector(".end__finish");
+
 
 //Sau khi kết thúc màn chào hỏi người chơi sẽ cho chương trình game chạy
 end__finish.addEventListener("click", () => {
@@ -19,11 +21,25 @@ end__finish.addEventListener("click", () => {
     hello__name__player.style.display = "none";
     document.querySelector('.wrapper-game').style.display="block";
     document.querySelector('.bonuss_gif').style.display="block";
+
+    document.querySelector('.start-sound').innerHTML = `<audio autoplay controls hidden> 
+    <source src="./public/img/audio/star-game.wav" type="audio/mpeg">
+    </audio>`;
+    
     //Gọi đến hàm maine của game
     main__game();
     //Gọi đén hàm set bonus
     bonus_gif();
+
+    //Gọi đến hàm main sound
+    document.querySelector('.setting').style.display="block";
+    document.querySelector('.bg-setting').style.display="block";
+    Sound_Main();
+
+    //Gọi đến Hàm Change background
+    ChangeBG();
 });
+
 
 // Hiển thị tên người chơi
 const get__name__player = document.querySelector(".startAfterSaveName");
@@ -35,11 +51,19 @@ get__name__player.addEventListener("click", () => {
     let img__instructor = document.querySelector(".img__instructor");
     let error__name = document.querySelector(".error__name");
 
+    document.querySelector('.start-sound').innerHTML = `<audio autoplay controls hidden> 
+    <source src="./public/img/audio/star-game.wav" type="audio/mpeg">
+    </audio>`;
+
     //Ten nguoi choi tren thanh menu
     let name__player__header = document.querySelector('.name__player__header');
 
     if (name__player.value === "") {
         error__name.style.display = "block";
+        document.querySelector('.start-sound').innerHTML = `<audio autoplay controls hidden> 
+        <source src="./public/img/audio/wrong.wav" type="audio/mpeg">
+        </audio>`;
+        error__name.classList.add("rung-error");
     } else {
         name__title.innerHTML = name__player.value;
         instructor__name.style.display = "block";
@@ -52,6 +76,7 @@ get__name__player.addEventListener("click", () => {
     name__player__header.innerHTML = name__player.value;
 });
 
+
 function startGame() {
     // Xử lí hiển thị thông báo chào người chơi
     // Ẩn hiện massage
@@ -59,6 +84,9 @@ function startGame() {
     finish__massage.addEventListener("click", () => {
         let title__instructor = document.querySelector(".title__instructor");
         let img__instructor = document.querySelector(".img__instructor");
+        document.querySelector('.start-sound').innerHTML = `<audio autoplay controls hidden> 
+        <source src="./public/img/audio/star-game.wav" type="audio/mpeg">
+        </audio>`;
 
         title__instructor.style.display = "none";
         img__instructor.style.display = "none";
@@ -234,7 +262,7 @@ const main__game = function () {
 
         //When your pet runs out of health, it will be a gonner.
 
-
+        
         //Khi thú cưng của bạn cạn kiệt sức khỏe, nó sẽ chết.
         if (ctCurH < 0 || ctCurVM < 0) {
             alive = false;
@@ -246,15 +274,26 @@ const main__game = function () {
                 getStyleH.width = 0 + "px";
                 getStyleVM.width = 0 + "px";
                 getStyleVR.width = 0 + "px";
+                
                 // hiển thị thông báo game over
+                let end__temp = document.querySelector('.end__temp').style;
+
+                //Ẩn setting khi gameover
+                document.querySelector('.setting').style.display="none";
+                document.querySelector('.bg-setting').style.display="none";
+
+                end__temp.height = '100vh';
+                end__temp.background = "rgba(0, 0, 0, 0.849)";
                 var toast = new bootstrap.Toast(toastLiveExample);
+                document.querySelector('.over-sound').classList.add('sound');
                 toast.show();
                 document.querySelector('.wrapper-game').style.display="none";
                 document.querySelector('.bonuss_gif').style.display="none";
+                
             }, 1000)
-           
-        }
 
+        }
+       
 
     }, intervalH);
 
@@ -264,7 +303,7 @@ const main__game = function () {
             if (ctCurH + points <= ctMaxH) {
                 ctCurH = ctCurH + points;
                 caressing_sound.innerHTML = `<audio autoplay controls hidden> 
-                <source src="./public/img/audio/meomeomeo.mp3" type="audio/mpeg">
+                <source src="./public/img/audio/cat-meow.wav" type="audio/mpeg">
             </audio>`;
                 meterWidth();
 
@@ -273,12 +312,7 @@ const main__game = function () {
                 checkDangerVM();
                 checkDangerVR();
 
-                //    if(dangerH == false)
-                //    {okH();}
-                //    if(dangerVM == false)
-                //    {okVM();}
-                //    if(dangerVR == false)
-                //    {okVR();}
+                
             }
         }
     });
@@ -335,8 +369,9 @@ const main__game = function () {
     //Nhấp vào nút Đồ chơi sẽ phục hồi thanh trang thái đồ chơi
 
     getBtnToy1.addEventListener('click', function () {
-        toyding();
+
         if (getToys_1.innerHTML > 0) {
+            toyding(4);
             getToys_1.innerHTML = getToys_1.innerHTML - 1;
             massage__food.style.transform = 'scale(0)';
             audio_toy();
@@ -345,8 +380,8 @@ const main__game = function () {
         }
     });
     getBtnToy2.addEventListener('click', function () {
-        toyding();
         if (getToys_2.innerHTML > 0) {
+            toyding(7);
             getToys_2.innerHTML = getToys_2.innerHTML - 1;
             massage__food.style.transform = 'scale(0)';
             audio_toy();
@@ -355,8 +390,8 @@ const main__game = function () {
         }
     });
     getBtnToy3.addEventListener('click', function () {
-        toyding();
         if (getToys_3.innerHTML > 0) {
+            toyding(10);
             getToys_3.innerHTML = getToys_3.innerHTML - 1;
             massage__food.style.transform = 'scale(0)';
             audio_toy();
@@ -365,8 +400,9 @@ const main__game = function () {
         }
     });
     getBtnToy4.addEventListener('click', function () {
-        toyding();
+       
         if (getToys_4.innerHTML > 0) {
+            toyding(14);
             getToys_4.innerHTML = getToys_4.innerHTML - 1;
             massage__food.style.transform = 'scale(0)';
             audio_toy();
@@ -384,6 +420,9 @@ const main__game = function () {
                 bonus(1000);//gọi hàm thưởng 1000 khi người chơi đạt điểm cảm xúc tối đa 5s
                 second_5s = 0;
                 countdown.innerHTML = '+1000';
+                feeding_sound.innerHTML = `<audio autoplay controls hidden> 
+                <source src="./public/img/audio/bonus-tip.wav" type="audio/mpeg">
+                </audio>`;
             } else if (second_5s < 5) {
                 countdown.innerHTML = '';
             }
@@ -416,7 +455,6 @@ const main__game = function () {
                 
                 if (ctMaxVM * 0.5 < ctCurVM) {
                     bonus(500);//người chơi cho thú cưng ăn đúng giờ sẽ được thưởng tiền
-
                 }
             }
         }
@@ -425,14 +463,14 @@ const main__game = function () {
 
 
     // Bắt sự kiện khi ấn vào nút cho chơi đồ chơi
-    function toyding() {
+    function toyding(element) {
         if (alive == true) {
            
             if (ctCurVR + points < ctMaxVR) {
-                ctCurVR = ctCurVR + points;
+                ctCurVR = ctCurVR + element;
                 
                 if (ctCurH + points < ctMaxH) {
-                    ctCurH = ctCurH + points;
+                    ctCurH = ctCurH + element;
                 }
 
                 meterWidth();
@@ -453,13 +491,14 @@ const main__game = function () {
     }
 
     //Functions
-
+    
     function meterWidth() {
         //Điều này cập nhật chiều rộng của mét.
         if (alive == true) {
             getStyleH.width = ctCurH * widther + "px";
             getStyleVM.width = ctCurVM * widther + "px";
             getStyleVR.width = ctCurVR * widther + "px";
+           
         }
 
     }
@@ -506,8 +545,9 @@ const main__game = function () {
     }
 
     function loseH() {
-        ctCurH = ctCurH - 10;
+        ctCurH = ctCurH - 0.5;
     }
+    
     // Sự kiện mua hàng trong shop
     // lấy sản phẩm trong shop đồ ăn
     const shop__food__1 = document.querySelector('.shop__food__1');
@@ -592,10 +632,19 @@ const main__game = function () {
 
 };
 
+const coins__price = document.querySelector('.coins__price');
+
+function bonusTimer(element) {
+    let coinInt = parseInt(coins__price.innerHTML);
+    coinInt += element;
+    coins__price.innerHTML = coinInt;
+}
+
 //Set thời gian hiển thị phần thưởng
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
     let show__message = document.querySelector('.massage__gif').style;
+   
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -609,6 +658,7 @@ function startTimer(duration, display) {
             timer = duration;
             show__message.display = 'block';
             audio_bonus();
+            bonusTimer(1000);
 
         } else {
             show__message.display = 'none';
@@ -656,6 +706,56 @@ play_again.addEventListener('click', function (){
     toastLiveExample.style.display = 'block';
     location.href = "../main-game.html";
 });
+
+function Sound_Main(){
+    let setting = document.querySelector('.setting');
+    let play__pause = document.querySelector('.play-pause');
+    let temp = document.querySelector('.temp');
+
+    play__pause.addEventListener('click', () => {
+        if(temp.style.display == 'none'){
+            temp.style.display = 'block';
+            play__pause.innerHTML = `<i class="fas fa-volume-mute"></i>`;
+            Pause();
+        }else{
+            temp.style.display = 'none';
+            play__pause.innerHTML = `<i class="fas fa-volume-down"></i>`;
+            Play();
+        }
+    })
+    
+    function Pause() {
+        document.getElementsByClassName('main-sound')[0].pause();
+    }
+    
+    function Play() {
+        document.getElementsByClassName('main-sound')[0].play();
+    }
+
+}
+
+function ChangeBG(){
+    const change = document.querySelectorAll('.change');
+    let body = document.querySelector('body');
+    for(let i = 0; i < change.length; i++){
+        change[i].addEventListener('click', () => {    
+            body.style.background = `url('public/img/house-pet-`+(i+1)+`.jpg') no-repeat`
+            body.style.backgroundPositionY = '-140px';
+            body.style.backgroundSize = "cover";                            
+        })
+
+    }
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
