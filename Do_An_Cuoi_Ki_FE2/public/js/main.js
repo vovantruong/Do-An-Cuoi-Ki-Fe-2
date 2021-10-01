@@ -689,7 +689,7 @@ closegame.addEventListener("click", function () {
 //sự kiện người chơi được chơi lại
 play_again.addEventListener("click", function () {
   toastLiveExample.style.display = "block";
-  location.href = "../main-game.html";
+  location.href = "./main-game.html";
 });
 
 function Sound_Main() {
